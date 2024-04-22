@@ -21,7 +21,7 @@ function Username() {
       const username = await appwriteService.checkUsernameAvaialable(
         data.username
       );
-      console.log(username);
+      // console.log(username);
       if (username.length === 0) {
         setValid(true);
         const userProfile = await appwriteService.userProfile({

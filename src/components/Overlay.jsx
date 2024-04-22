@@ -31,7 +31,7 @@ function Overlay({ fileId, back }) {
         fileData = await appwriteService.getCoverFileData(fileId.id);
       }
 
-      console.log(fileData);
+      // console.log(fileData);
 
       if (fileData) {
         if (getFileType(fileData.name) === "image") {
@@ -71,7 +71,7 @@ function Overlay({ fileId, back }) {
   }, []);
 
   useEffect(() => {
-    console.log(srcObj, fileId.id);
+    // console.log(srcObj, fileId.id);
   }, [srcObj, fileId]);
 
   return (

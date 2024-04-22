@@ -17,13 +17,13 @@ function Login() {
   const dispatch = useDispatch();
 
   const login = async (data) => {
-    console.log(data);
+    // console.log(data);
     try {
       const session = await authService.login({ ...data });
       if (session) {
         const id = await authService.getCurrentUser();
         const currentUser = await appwriteService.getUserDetailsById(id.$id);
-        console.log(currentUser);
+        // console.log(currentUser);
         dispatch(loginAction({ ...currentUser }));
         navigate("/home");
       }

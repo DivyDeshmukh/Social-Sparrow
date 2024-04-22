@@ -10,7 +10,7 @@ function Search({ username, className }) {
     try {
       const timeoutId = setTimeout(async () => {
         const users = await appwriteService.searchUser(username);
-        console.log(users);
+        // console.log(users);
         if (users) {
           setUsers(users);
         }
@@ -28,7 +28,7 @@ function Search({ username, className }) {
     });
 
     const resolvedPromises = await Promise.all(promises);
-    console.log(resolvedPromises);
+    // console.log(resolvedPromises);
     setProfileArr(resolvedPromises);
   };
 

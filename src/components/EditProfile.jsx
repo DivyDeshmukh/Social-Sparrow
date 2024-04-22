@@ -59,7 +59,7 @@ function EditProfile({ back, handleProfileSrc, handleCoverSrc }) {
       const deleted = await appwriteService.deleteCoverImageFile(
         coverImageFileId
       );
-      console.log(deleted);
+      // console.log(deleted);
       if (!deleted) {
         return;
       }
@@ -74,7 +74,7 @@ function EditProfile({ back, handleProfileSrc, handleCoverSrc }) {
         setCoverImageFileId(uploaded.$id);
         if (preview) {
           setCoverSrc(preview);
-          console.log(preview);
+          // console.log(preview);
           handleCoverSrc(preview);
         }
       }
@@ -103,12 +103,12 @@ function EditProfile({ back, handleProfileSrc, handleCoverSrc }) {
 
   const handleProfileImage = async (e) => {
     // here, we just want that if profileImageFileId is same as default profile id then do not delete.
-    console.log(profileImageFileId, config.appwrite_default_profile_Id);
+    // console.log(profileImageFileId, config.appwrite_default_profile_Id);
     if (profileImageFileId !== config.appwrite_default_profile_Id) {
       const deleted = await appwriteService.deleteProfileImage(
         profileImageFileId ? profileImageFileId : null
       );
-      console.log(deleted, profileSrc);
+      // console.log(deleted, profileSrc);
       if (!deleted) {
         return;
       }
@@ -123,7 +123,7 @@ function EditProfile({ back, handleProfileSrc, handleCoverSrc }) {
         setProfileImageFileId(uploaded.$id);
         if (preview) {
           setProfileSrc(preview);
-          console.log(preview.href);
+          // console.log(preview.href);
           handleProfileSrc(preview.href);
         }
       }
@@ -134,13 +134,13 @@ function EditProfile({ back, handleProfileSrc, handleCoverSrc }) {
 
   const saveData = () => {
     saveRef?.current.click();
-    console.log(userData);
+    // console.log(userData);
   };
 
   const updateData = async (data) => {
     data.user_coverImage_id = coverImageFileId;
     data.user_profile_id = profileImageFileId;
-    console.log(data);
+    // console.log(data);
 
     try {
       const updateUserProfile = await appwriteService.updateUserProfile({

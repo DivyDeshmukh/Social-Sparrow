@@ -102,7 +102,7 @@ function Settings({
   };
 
   const follow = async () => {
-    console.log("follow", follower);
+    // console.log("follow", follower);
     try {
       const updatedUserProfile = await appwriteService.updateUserProfile({
         userId: userDetails?.$id,
@@ -126,7 +126,7 @@ function Settings({
   };
 
   const unfollow = async () => {
-    console.log("unfollow", follower);
+    // console.log("unfollow", follower);
     try {
       const followers = userDetails?.Followers.filter(
         (follower) => follower !== userData?.username
@@ -163,11 +163,11 @@ function Settings({
   useEffect(() => {
     if (userData) {
       const isFollowing = userData?.Following?.some((follower) => {
-        console.log(userDetails?.username);
+        // console.log(userDetails?.username);
         return follower === (postId ? tweet?.username : comment?.username);
       });
 
-      console.log("isFollowing: ", isFollowing);
+      // console.log("isFollowing: ", isFollowing);
       if (isFollowing) {
         setFollower(true);
       } else {
@@ -181,7 +181,7 @@ function Settings({
   }, [tweet, comment, userData]);
 
   useEffect(() => {
-    console.log(userDetails);
+    // console.log(userDetails);
   }, [userDetails]);
 
   // useEffect(() => {

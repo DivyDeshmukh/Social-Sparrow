@@ -25,7 +25,7 @@ function Media({ username }) {
   const getFileIdArr = async () => {
     try {
       const fileIds = await appwriteService.getAllMediaFileIds(username);
-      console.log(fileIds);
+      // console.log(fileIds);
       if (fileIds) {
         setFileIdArr(fileIds);
       }

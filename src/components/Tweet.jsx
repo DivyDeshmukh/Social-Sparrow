@@ -153,7 +153,7 @@ function Tweet({
   }, [userData, userDetails]);
 
   useEffect(() => {
-    console.log("hidden: ", hidden);
+    // console.log("hidden: ", hidden);
   }, [hidden]);
 
   return interested ? (

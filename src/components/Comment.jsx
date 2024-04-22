@@ -106,7 +106,7 @@ function Comment() {
 
   useEffect(() => {
     comment && getUserDetails();
-    console.log(comment, comments);
+    // console.log(comment, comments);
   }, [comment, comments]);
 
   useEffect(() => {

@@ -24,7 +24,7 @@ function Features({ postId, commentId }) {
       }
 
       if (commentId) {
-        console.log(commentId);
+        // console.log(commentId);
         liked = await appwriteService.likePost({
           username: userData?.username,
           tweetId: "",
@@ -32,7 +32,7 @@ function Features({ postId, commentId }) {
         });
       }
 
-      console.log(liked);
+      // console.log(liked);
 
       if (liked) {
         setLikeId(liked.$id);
@@ -40,7 +40,7 @@ function Features({ postId, commentId }) {
         setNumOfLikes((prev) => prev + 1);
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 
@@ -69,14 +69,14 @@ function Features({ postId, commentId }) {
         likes = await appwriteService.getCommentLikes(commentId);
       }
 
-      console.log(likes);
+      // console.log(likes);
       if (likes) {
         setNumOfLikes(likes.length);
         if (!likeId) {
           const isLiked = likes?.find(
             (like) => like.username === userData?.username
           );
-          console.log(isLiked);
+          // console.log(isLiked);
           if (isLiked) {
             setLiked(true);
             setLikeId(isLiked.$id);
@@ -108,7 +108,7 @@ function Features({ postId, commentId }) {
   };
 
   const bookmarkPost = async () => {
-    console.log("postId: ", postId, "commentId: ", commentId);
+    // console.log("postId: ", postId, "commentId: ", commentId);
     try {
       if (postId) {
         const bookmark = await appwriteService.bookmarkPost({
@@ -116,7 +116,7 @@ function Features({ postId, commentId }) {
           commentId: "",
           username: userData?.username,
         });
-        console.log(bookmark);
+        // console.log(bookmark);
         if (bookmark) {
           setBookmarked(true);
           setBookmarkedId(bookmark.$id);
@@ -142,7 +142,7 @@ function Features({ postId, commentId }) {
   const removeBookmark = async () => {
     try {
       const deleted = await appwriteService.deleteBookmark(bookmarkedId);
-      console.log(bookmarked);
+      // console.log(bookmarked);
       if (deleted) {
         setBookmarked(false);
         setBookmarkedId("");
@@ -157,19 +157,19 @@ function Features({ postId, commentId }) {
     try {
       if (postId) {
         bookmarks = await appwriteService.getBookmarksByTweetId(postId);
-        console.log("Bookmarks: ", bookmarks);
+        // console.log("Bookmarks: ", bookmarks);
       }
 
       if (commentId) {
         bookmarks = await appwriteService.getBookmarksByCommentId(commentId);
-        console.log("Bookmarks: ", bookmarks);
+        // console.log("Bookmarks: ", bookmarks);
       }
 
       if (bookmarks) {
         const isBookmarked = bookmarks?.find(
           (bookmark) => bookmark.username === userData?.username
         );
-        console.log(isBookmarked);
+        // console.log(isBookmarked);
         if (isBookmarked) {
           setBookmarked(true);
           setBookmarkedId(isBookmarked.$id);
@@ -187,7 +187,7 @@ function Features({ postId, commentId }) {
 
   useEffect(() => {
     getBookmarks();
-    console.log(postId, commentId);
+    // console.log(postId, commentId);
   }, [postId, commentId]);
 
   return (

@@ -16,7 +16,7 @@ function Replies() {
           (reply) => reply.tweetId !== "" && reply.commentId === ""
         );
         const crep = replies.filter((reply) => reply.commentId !== "");
-        console.log("tcom ", tcom, "crep ", crep);
+        // console.log("tcom ", tcom, "crep ", crep);
         if (tcom.length !== 0) setTweetComments(tcom);
         if (crep.length !== 0) setCommentReplies(crep);
       }
@@ -30,7 +30,7 @@ function Replies() {
   }, [username]);
 
   useEffect(() => {
-    console.log(tweetComments, commentReplies);
+    // console.log(tweetComments, commentReplies);
   }, [tweetComments, commentReplies]);
 
   return tweetComments.length !== 0 || commentReplies.length !== 0 ? (

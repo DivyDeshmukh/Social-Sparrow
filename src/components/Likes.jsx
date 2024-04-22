@@ -16,7 +16,7 @@ function Likes() {
   const getLikedPosts = async () => {
     try {
       const likedPosts = await appwriteService.getLikedPostsByUser(username);
-      console.log("Liked Posts: ", likedPosts);
+      // console.log("Liked Posts: ", likedPosts);
       if (likedPosts) {
         const postIds = likedPosts
           ?.map((likedPost) => likedPost.tweetId)
@@ -25,7 +25,7 @@ function Likes() {
         const commentIds = likedPosts
           ?.map((likedPost) => likedPost.commentId)
           .filter((commentId) => commentId !== "");
-        console.log("PostIds: ", postIds, "CommentIds: ", commentIds);
+        // console.log("PostIds: ", postIds, "CommentIds: ", commentIds);
 
         if (postIds.length !== 0) {
           setTweetIds(postIds);
@@ -97,7 +97,7 @@ function Likes() {
   }, [tweetIds, commentIds]); // Run when tweetIds change
 
   useEffect(() => {
-    console.log("Tweets", tweets, "Comments", comments);
+    // console.log("Tweets", tweets, "Comments", comments);
   }, [tweets, comments]);
 
   return tweets.length !== 0 || comments.length !== 0 ? (

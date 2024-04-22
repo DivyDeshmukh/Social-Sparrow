@@ -25,7 +25,7 @@ function Followers() {
         user.isFollowed = userData.Following.includes(user.username);
         return user;
       });
-      console.log(updatedUserArr);
+      // console.log(updatedUserArr);
       setUserDetails(updatedUserArr);
     } catch (error) {
       throw error;

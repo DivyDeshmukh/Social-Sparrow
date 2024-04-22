@@ -25,7 +25,7 @@ function Followers() {
         user.isFollowed = userData.Following.includes(user.username);
         return user;
       });
-      console.log(updatedUserArr);
+      // console.log(updatedUserArr);
       setUserDetails(updatedUserArr);
     } catch (error) {
       throw error;
@@ -107,7 +107,7 @@ function Followers() {
   };
 
   useEffect(() => {
-    console.log(userData, userData?.Followers.length);
+    // console.log(userData, userData?.Followers.length);
     userData?.Followers.length !== 0 && getUserDetailsArr();
   }, [userData]);
 
@@ -117,7 +117,7 @@ function Followers() {
   }, [userDetails]);
 
   useEffect(() => {
-    console.log(userData?.Following);
+    // console.log(userData?.Following);
   }, [userData]);
 
   // useEffect(() => {
