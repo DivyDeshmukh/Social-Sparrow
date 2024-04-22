@@ -38,7 +38,7 @@ function Signup() {
           id="text"
           className="w-full flex flex-col gap-2 justify-center items-center mt-4 text-black mb-4"
         >
-          <Logo className="h-[80px] w-[80px] p-1" />
+          <Logo className="h-[64px] w-[64px] p-1" />
           <h1 className="text-center">Sign in to your account</h1>
           <span>
             Already have an account?
@@ -58,7 +58,10 @@ function Signup() {
         </div>
         <form onSubmit={handleSubmit(signup)} className="mt-8">
           <div className="mb-4">
-            <label htmlFor="name" className="block text-black ml-5 mb-2">
+            <label
+              htmlFor="name"
+              className="block  text-white dark:text-black ml-5 mb-2"
+            >
               Name:
             </label>
             <Input
@@ -72,7 +75,10 @@ function Signup() {
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="email" className="block text-black ml-5 mb-2">
+            <label
+              htmlFor="email"
+              className="block  text-white dark:text-black ml-5 mb-2"
+            >
               Email:
             </label>
             <Input
@@ -86,7 +92,10 @@ function Signup() {
             />
           </div>
           <div className="mb-4 relative">
-            <label htmlFor="password" className="block text-black ml-5 mb-2">
+            <label
+              htmlFor="password"
+              className="block  text-white dark:text-black ml-5 mb-2"
+            >
               Password:
             </label>
             <Input
@@ -106,7 +115,7 @@ function Signup() {
               {showPassword ? (
                 <i className="ri-eye-line text-black mr-[-16px]"></i>
               ) : (
-                <i className="ri-eye-off-line text-black mr-[-56px]"></i>
+                <i className="ri-eye-off-line text-black mr-[-16px]"></i>
               )}
             </button>
           </div>

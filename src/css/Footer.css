@@ -22,21 +22,14 @@ footer .div {
   gap: 10px;
 }
 
-footer #logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 13px;
-}
-
 footer #fp-2 {
   text-align: center;
   opacity: 0.6;
 }
 
-footer #logo #logo-txt {
-  font-size: 17.5px;
+footer #logo-footer-txt {
+  font-size: 19px;
   position: relative;
-  left: -10px;
-  top: -7px;
+  left: 87.5px;
+  top: -60.5px;
 }

@@ -302,7 +302,7 @@ function EditProfile({ back, handleProfileSrc, handleCoverSrc }) {
               >
                 <label
                   htmlFor="name"
-                  className="text-[11px] ml-2 text-slate-600"
+                  className="text-[11px] ml-2 text-white dark:text-slate-600"
                 >
                   Name
                 </label>
@@ -330,7 +330,7 @@ function EditProfile({ back, handleProfileSrc, handleCoverSrc }) {
               >
                 <label
                   htmlFor="bio"
-                  className="text-[11px] ml-2 text-slate-600"
+                  className="text-[11px] ml-2 text-white dark:text-slate-600"
                 >
                   Bio
                 </label>
@@ -357,7 +357,7 @@ function EditProfile({ back, handleProfileSrc, handleCoverSrc }) {
               >
                 <label
                   htmlFor="website"
-                  className="text-[11px] ml-2 text-slate-600"
+                  className="text-[11px] ml-2 text-white dark:text-slate-600"
                 >
                   Website
                 </label>
@@ -383,7 +383,7 @@ function EditProfile({ back, handleProfileSrc, handleCoverSrc }) {
               >
                 <label
                   htmlFor="date"
-                  className="text-[12px] ml-2 text-slate-600"
+                  className="text-[12px] ml-2 text-white dark:text-slate-600"
                 >
                   Birth Date
                 </label>

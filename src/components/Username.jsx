@@ -47,7 +47,7 @@ function Username() {
   return (
     <div className="bg-black p-4 h-screen w-full flex items-center justify-center">
       <div className="flex flex-col gap-4 bg-[#ED729F] dark:bg-red-500 px-12 py-8 rounded-2xl items-center">
-        <Logo className="h-[60px] w-[60px]" />
+        <Logo className="h-[60px] w-[60px] bg-white p-1 dark:bg-black" />
 
         {!valid && (
           <p className="text-center text-white dark:text-amber-300 font-bold">
@@ -71,7 +71,7 @@ function Username() {
           />
           <Button
             type="submit"
-            className="py-1.5 text-[#ED729F] bg-[white] border-[white] border-4 dark:text-red-500 dark:bg-black rounded-full dark:hover:bg-red-500 dark:hover:text-black hover:border-4 dark:hover:border-black hover:bg-[#ED729F] hover:border-white hover:text-white"
+            className="py-1.5 text-[#ED729F] bg-[white] border-4 dark:border-black dark:text-red-500 dark:bg-black rounded-full dark:hover:bg-red-500 dark:hover:text-black hover:border-4 dark:hover:border-black hover:bg-[#ED729F] hover:border-white hover:text-white"
           >
             Submit
           </Button>

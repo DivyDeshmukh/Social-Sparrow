@@ -92,7 +92,10 @@ function Reply({ $id, username, text, getComments, tweetId, commentId }) {
       </div>
 
       <div id="settings" className="absolute right-3 top-1 cursor-pointer p-1">
-        <i className="ri-settings-5-fill text-white absolute right-2 top-[-22px]"></i>
+        <i
+          className="ri-settings-5-fill text-white absolute right-2 top-[-22px]"
+          onClick={() => setShowSettings((prev) => !prev)}
+        ></i>
         {showSettings && (
           <Settings
             commentId={$id}

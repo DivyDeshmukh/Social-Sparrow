@@ -8,7 +8,7 @@ function Sidebar({ navItems, handleMenu, showMenu }) {
 
   return (
     <div
-      className={`h-[91.25vh] w-[40vw] bg-white text-[#ED729F] dark:bg-red-500 absolute z-[100] right-0 top-[9.75vh] transition-all duration-400 ${
+      className={`h-[91.25vh] w-[40vw] bg-white dark:bg-red-500 absolute z-[100] right-0 top-[9.75vh] transition-all duration-400 ${
         showMenu ? "translate-x-0" : "-translate-x-full"
       }`}
     >
@@ -48,7 +48,7 @@ function Sidebar({ navItems, handleMenu, showMenu }) {
 
         {authStatus && (
           <li className="w-full hover:bg-[#ED729F] hover:text-white dark:hover:bg-black dark:hover:text-red-500 px-3 py-0">
-            <LogoutBtn className="hover:bg-[#ED729F] hover:text-white dark:hover:text-red-500 dark:hover:bg-black rounded-full ">
+            <LogoutBtn className="hover:bg-[#ED729F] hover:text-white dark:hover:text-red-500 dark:text-white text-[#ED729F] dark:hover:bg-black rounded-full ">
               Logout
             </LogoutBtn>
           </li>

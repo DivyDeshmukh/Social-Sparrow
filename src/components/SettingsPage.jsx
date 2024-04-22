@@ -44,9 +44,14 @@ function SettingsPage() {
   };
 
   useEffect(() => {
-    document.querySelector("html").classList.remove("light", "dark");
+    if (themeMode === userData?.theme) {
+      document.querySelector("html").classList.remove("light", "dark");
 
-    document.querySelector("html").classList.add(themeMode);
+      themeMode
+        ? document.querySelector("html").classList.add(themeMode)
+        : document.querySelector("html").classList.add(userData?.theme);
+    }
+    // console.log(themeMode, userData?.theme);
   }, [userData?.theme]);
 
   return (

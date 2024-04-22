@@ -11,9 +11,9 @@ function LandingPage() {
         className="flex gap-4 w-full items-center justify-center flex-col"
       >
         <h1 className="text-3xl md:text-5xl font-bold text-center dark:text-white text-white">
-          Welcome to Social Sparrow...
+          Welcome to
         </h1>
-        <Logo className="h-[55px] w-[55px] md:h-[75px] md:w-[75px]" />
+        <Logo className="h-[55px] w-[55px] md:h-[75px] md:w-[75px] bg-white dark:bg-black p-1" />
       </div>
       <div className="flex flex-col md:flex-row w-full justify-center items-center gap-16">
         <div
@@ -26,7 +26,7 @@ function LandingPage() {
             className="h-full w-full object-cover"
           />
         </div>
-        <div className="authBox flex flex-col gap-4 border-2 border-white dark:border-red-500 p-4 -translate-y-8 text-center md:text-left">
+        <div className="authBox flex flex-col gap-4 border-2 border-white dark:border-red-500 p-4 text-center md:text-left justify-center sm:-translate-y-12">
           <Link
             to="/login"
             className="dark:text-black font-bold dark:bg-red-500 p-1 text-center rounded-lg px-4 py-2 text-sm md:text-lg dark:hover:bg-black hover:border-2 dark:hover:border-red-500 dark:hover:text-red-500 bg-white text-[#ED729F] hover:bg-[#ED729F] hover:text-white"

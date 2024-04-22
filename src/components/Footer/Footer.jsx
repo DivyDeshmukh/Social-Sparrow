@@ -7,12 +7,14 @@ function Footer() {
   return (
     <footer className="overflow-hidden border-t-2 bg-[#ED729F] border-white dark:border-red-500 dark:bg-black pt-12 font-semibold">
       <div id="fp-1">
-        <div class="div div1 items-center">
-          <Logo className="h-[60px] w-[60px]" />
-          <div id="logo">
-            <span>Social Sparrow</span>
-            <span id="logo-txt">®</span>
-          </div>
+        <div class="div div1 flex items-center justify-center relative mb-6">
+          <Logo
+            className="h-[60px] w-[60px] absolute left-1/3 mt-2"
+            parentClassname="flex-col"
+          />
+          <span id="logo-footer-txt" className="text-white">
+            ®
+          </span>
         </div>
         <div class="div div2">
           <h4 className="text-white dark:text-red-500 font-semibold">About</h4>
@@ -24,9 +26,12 @@ function Footer() {
         </div>
         <div class="div div3">
           <h4 className="text-white dark:text-red-500 font-semibold">Links</h4>
-          <Link to="attach link after uploading" className="underline">
+          {/* <Link
+            to="https://social-sparrow.netlify.app/profile/Divy_Deshmukh"
+            className="underline"
+          >
             SocialSparrow <i class="ri-arrow-right-up-line"></i>
-          </Link>
+          </Link> */}
           <Link
             to="https://www.linkedin.com/in/divy-deshmukh-035763235"
             className="underline"
@@ -39,7 +44,10 @@ function Footer() {
           <Link to="https://twitter.com/DeshmukhDivy" className="underline">
             Twitter <i class="ri-arrow-right-up-line"></i>
           </Link>
-          <Link to="Resume link" className="underline">
+          <Link
+            to="https://drive.google.com/file/d/1idSlxdJdf8A4ajeoqIbtZvzpWCGRYJ_D/view?usp=sharing"
+            className="underline"
+          >
             Resume<i class="ri-arrow-right-up-line"></i>
           </Link>
         </div>

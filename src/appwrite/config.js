@@ -146,7 +146,7 @@ class AppwriteService {
     website,
     Followers,
     Following,
-    theme = "dark",
+    theme = "light",
   }) {
     try {
       const profile = await this.databases.createDocument(
@@ -185,7 +185,7 @@ class AppwriteService {
     website,
     Followers,
     Following,
-    theme = "dark",
+    theme = "light",
   }) {
     console.log("Followers: ", Followers, "Following: ", Following);
     try {

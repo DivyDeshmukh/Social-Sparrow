@@ -579,7 +579,7 @@ function Profile() {
 
         {activeUser ? (
           <button
-            className="bg-[#ED729F] text-white dark:bg-red-500  dark:text-black py-2 px-4 rounded-full font-semibold absolute left-[63.5%] -translate-x-1 sm:left-[80%] md:left-[82.75%] md:-translate-x-2 lg:left-[61.5%] xl:left-[64%] -translate-y-1 text-center mr-4 mt-1 dark:hover:bg-black hover:bg-white hover:text-[#ED729F] border-2 border-white dark:border-red-500 dark:hover:text-red-500"
+            className="bg-[white] text-[#ED729F] dark:bg-red-500  dark:text-black py-2 px-4 rounded-full font-semibold absolute left-[63.5%] -translate-x-1 sm:left-[80%] md:left-[82.75%] md:-translate-x-2 lg:left-[61.5%] xl:left-[64%] -translate-y-1 text-center mr-4 mt-1 dark:hover:bg-black hover:bg-[#ED729F] hover:text-[white] border-2 dark:border-red-500 dark:hover:text-red-500"
             onClick={() => setShowModal(true)}
           >
             Edit Profile
@@ -642,10 +642,10 @@ function Profile() {
               </div>
             )}
             <h5 className="mb-2 text-slate-600">Joined {joined}</h5>
-            {userDetails?.website === "" && (
+            {userDetails?.website !== null && (
               <Link
                 to={`${userDetails?.website}`}
-                className="text-purple-500 font-light underline -translate-y-4"
+                className="text-white dark:text-purple-500 font-light underline -translate-y-4 -translate-x-5"
               >
                 {userDetails?.website}{" "}
                 <i className="ri-arrow-right-up-line"></i>
