@@ -17,41 +17,35 @@ To get started with My App, follow these steps:
 
 Clone the repository:
 
-sh
 Copy code
-git clone https://github.com/yourusername/my-app.git
+```bash
+git clone https://github.com/DivyDeshmukh/Social-Sparrow.git
 cd my-app
+```
 Install the dependencies:
 
-sh
 Copy code
+```bash
 npm install
+```
 Start the development server:
 
-sh
 Copy code
-npm start
+```bash
+npm run dev
+```
 Open your browser and navigate to:
 
-arduino
-Copy code
-http://localhost:3000
-Usage
-Running the App
-To run the app in development mode, use:
-
-sh
-Copy code
-npm start
-This will start the app and automatically open it in your default browser.
 
 Building for Production
 To create a production build, use:
 
 sh
 Copy code
+```bash
 npm run build
 This will compile the application into static files for deployment.
+```
 
 Dependencies
 The project uses the following major dependencies:
