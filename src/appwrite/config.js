@@ -44,7 +44,7 @@ class AppwriteService {
 
       if (tweets) return tweets.documents;
 
-      console.log("tweets");
+      // console.log("tweets");
     } catch (error) {
       console.log("Appwrite Service :: getTweets :: Error: ", error);
     }
