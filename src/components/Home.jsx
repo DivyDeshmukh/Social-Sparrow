@@ -134,6 +134,7 @@ function Home() {
         setText("");
         setUploadedFile([]);
         setUploadedFileIds([]);
+        getTweets();
       }
     } catch (error) {
       throw error;

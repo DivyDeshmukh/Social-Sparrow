@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import appwriteService from "../appwrite/config";
+import {Link} from "react-router-dom";
 
 function Search({ username, className }) {
   const [users, setUsers] = useState([]);
@@ -41,35 +42,33 @@ function Search({ username, className }) {
     getProfile();
   }, [users]);
 
-  useEffect(() => {
-    // console.log(profileSrc);
-  }, [profileSrc]);
 
   return (
     <div
       className={`flex flex-col gap-4 text-red-500 w-full h-auto items-center pt-4 pb-6 ${className}`}
     >
-      <ul className="flex flex-col items-start justify-start gap-4 w-full h-auto pt-4 px-4">
+      <ul className="flex flex-col items-center justify-center gap-4 w-full h-auto pt-4 px-4">
         {users.length !== 0 ? (
           users?.map((user, index) => (
             <li
               key={index}
-              className="flex gap-6 w-full h-auto p-4 justify-center pl-6 bg-black items-center rounded-lg flex-wrap"
             >
-              <div
-                id="img"
-                className="h-[55px] w-[55px] rounded-full overflow-hidden"
-              >
-                <img
-                  src={profileSrc[index]}
-                  alt="profile"
-                  className="h-full w-full object-cover rounded-full"
-                />
-              </div>
-              <div id="right" className="flex flex-col">
-                <h1 className="text-white text-lg">{user?.name}</h1>
-                <h3 className="text-red-600 text-sm">@{user?.username}</h3>
-              </div>
+              <Link to={`/profile/${user?.username}`} className="flex gap-6 w-full h-auto p-4 justify-center pl-6 bg-black items-center rounded-lg flex-wrap">
+                <div
+                  id="img"
+                  className="h-[55px] w-[55px] rounded-full overflow-hidden"
+                >
+                  <img
+                    src={profileSrc[index]}
+                    alt="profile"
+                    className="h-full w-full object-cover rounded-full"
+                  />
+                </div>
+                <div id="right" className="flex flex-col">
+                  <h1 className="text-white text-lg">{user?.name}</h1>
+                  <h3 className="text-red-600 text-sm">@{user?.username}</h3>
+                </div>
+              </Link>
             </li>
           ))
         ) : (
