@@ -4,52 +4,33 @@ import Tweet from "./Tweet";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
-function UserPosts() {
-  const userData = useSelector((state) => state.auth.userData);
-  const [userPosts, setUserPosts] = useState(null);
-  const [activeUser, setActiveUser] = useState(false);
-  const { username } = useParams();
-  const [userDetails, setUserDetails] = useState(null);
-  const usertweets = useSelector((state) => state.tweets.userPosts);
+function UserPosts({userPosts = []}) {
+  // const userData = useSelector((state) => state.auth.userData);
+  // const [activeUser, setActiveUser] = useState(false);
+  // const { username } = useParams();
+  // const [userDetails, setUserDetails] = useState(null);
 
-  const getUserDetails = useCallback(async () => {
-    try {
-      const userData = await appwriteService.getUserDetails(username);
-      // console.log(userData);
-      if (userData) {
-        setUserDetails(userData);
-      }
-    } catch (error) {
-      throw error;
-    }
-  }, [username]);
+  // const getUserDetails = useCallback(async () => {
+  //   try {
+  //     const userData = await appwriteService.getUserDetails(username);
+  //     if (userData) {
+  //       setUserDetails(userData);
+  //     }
+  //   } catch (error) {
+  //     throw error;
+  //   }
+  // }, [username]);
 
-  const getUserPosts = async () => {
-    try {
-      if (activeUser) {
-        // const userPosts = await appwriteService.getUserPosts(userData?.username);
-        setUserPosts(usertweets);
-      } else if (!activeUser && userDetails) {
-        const userPosts = await appwriteService.getUserPosts(
-          userDetails?.username
-        );
-        setUserPosts(userPosts);
-      }
-    } catch (error) {
-      throw error;
-    }
-  };
+  // useEffect(() => {
+  //   getUserDetails();
+  //   if (userData?.username === username) {
+  //     setActiveUser(true);
+  //   }
+  // }, [username]);
 
-  useEffect(() => {
-    getUserDetails();
-    if (userData?.username === username) {
-      setActiveUser(true);
-    }
-  }, [username]);
-
-  useEffect(() => {
-    userDetails && getUserPosts();
-  }, [userData, userDetails]);
+  // useEffect(() => {
+  //   userDetails && getUserPosts();
+  // }, [userData, userDetails]);
 
   return userPosts?.length !== 0 ? (
     <div>

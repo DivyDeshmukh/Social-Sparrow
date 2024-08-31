@@ -4,9 +4,7 @@ import LogoutBtn from "./LogoutBtn";
 import { useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 import Logo from "../Logo";
-import Input from "../Input";
 import { useState } from "react";
-import Search from "../Search";
 import Sidebar from "./Sidebar";
 
 function Header() {
@@ -14,7 +12,6 @@ function Header() {
   const userData = useSelector((state) => state.auth.userData);
   const [showMenu, setShowMenu] = useState(false);
   const sidebarRef = useRef(null);
-  const [searchTerm, setSearchTerm] = useState("");
 
   const handleMenu = () => {
     setShowMenu((prev) => !prev);
