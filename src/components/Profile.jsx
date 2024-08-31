@@ -29,12 +29,13 @@ function Profile() {
   const [userDetails, setUserDetails] = useState(null);
   const [followed, setFollowed] = useState(false);
   const [fileId, setFileId] = useState("");
+  const [userPosts, setUserPosts] = useState(null);
+  const usertweets = useSelector((state) => state.tweets.userPosts);
   const dispatch = useDispatch();
   const date = new Date(userDetails?.$createdAt);
   const joined = `${date.toLocaleString("default", {
     month: "short",
   })} ${date.getFullYear()}`;
-  const userposts = useSelector((state) => state.tweets.userPosts);
   const [showOverlay, setShowOverlay] = useState(false);
 
   const back = () => {
@@ -147,18 +148,35 @@ function Profile() {
     setProfileSrc(preview);
   };
 
-  useEffect(() => {
-    userDetails && getImages();
-  }, [userData, userDetails, userposts, showModal]);
+  const getUserPosts = async () => {
+    try {
+      if (activeUser) {
+        setUserPosts(usertweets);
+      } else if (!activeUser && userDetails) {
+        const userPosts = await appwriteService.getUserPosts(
+          username
+        );
+        if(userPosts) {
+          setUserPosts(userPosts);
+        }
+      }
+    } catch (error) {
+      throw error;
+    }
+  };
 
   useEffect(() => {
     getUserDetails();
-    if (userData.username === username) {
+    if (userData?.username === username) {
       setActiveUser(true);
-    } else {
-      setActiveUser(false);
     }
   }, [username]);
+
+  useEffect(() => {
+    userDetails && getImages();
+    userDetails && getUserPosts();
+    console.log(userDetails);
+  }, [userData, userDetails, showModal]);
 
   useEffect(() => {
     if (userData) {
@@ -178,7 +196,7 @@ function Profile() {
         <div className="flex flex-col gap-1 pl-8 pt-4">
           <h1>{activeUser ? userData?.name : userDetails?.name}</h1>
           <h5 className="text-slate-500 text-[14px]">
-            {userposts.length} posts
+            {userPosts?.length} {userPosts?.length === 1 ? "post" : "posts"}
           </h5>
         </div>
 
@@ -269,7 +287,7 @@ function Profile() {
               </div>
             )}
             <h5 className="mb-2 text-slate-600">Joined {joined}</h5>
-            {userDetails?.website !== null && (
+            {userDetails?.website !== "" && (
               <Link
                 to={`${userDetails?.website}`}
                 className="text-white dark:text-purple-500 font-light underline -translate-y-4 -translate-x-5"
@@ -316,7 +334,7 @@ function Profile() {
           >
             Likes
           </button>
-          <button
+          <button 
             onClick={() => {
               setShowReplies(true);
               setShowLikes(false);
@@ -331,7 +349,7 @@ function Profile() {
 
         {/* Profile Content */}
         <div id="profile-info">
-          {showPosts && <UserPosts />}
+          {showPosts && <UserPosts userPosts={userPosts} />}
           {showMedia && <Media username={username} />}
           {showLikes && <Likes />}
           {showReplies && <Replies />}

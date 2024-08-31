@@ -19,12 +19,9 @@ function Signup() {
     try {
       const userAccount = await authService.createAccount({ ...data });
       if (userAccount) {
-        // create doc in Users and if success then update store
         const currentUser = await authService.getCurrentUser();
         dispatch(login({ ...currentUser }));
         navigate("/username");
-        // update store
-        // navigate("/home");
       }
     } catch (error) {
       setError(error?.message);

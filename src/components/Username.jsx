@@ -21,7 +21,6 @@ function Username() {
       const username = await appwriteService.checkUsernameAvaialable(
         data.username
       );
-      // console.log(username);
       if (username.length === 0) {
         setValid(true);
         const userProfile = await appwriteService.userProfile({
@@ -83,4 +82,3 @@ function Username() {
 
 export default Username;
 
-// No, the get method in Appwrite does not provide the password in the data object of the currently logged-in user. In fact, Appwrite does not expose the password of the user through its API endpoints for security reasons.
