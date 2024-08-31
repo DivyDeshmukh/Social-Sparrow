@@ -1,4 +1,4 @@
-# Introducing "Social Sparrow" – a dynamic and immersive social networking platform meticulously crafted with cutting-edge technologies to redefine the digital social experience. Powered by React, Tailwind CSS, HTML, and Appwrite, Social Sparrow embodies innovation, creativity, and user-centric design principles to seamlessly connect individuals across the globe.
+# Introducing "Social Sparrow" – a dynamic and immersive social networking platform.
 
 # Author - Divy Deshmukh
 
@@ -46,19 +46,3 @@ Copy code
 npm run build
 This will compile the application into static files for deployment.
 ```
-
-Dependencies
-The project uses the following major dependencies:
-
-React: ^18.2.0
-Emotion (react and styled): ^11.11.4, ^11.11.5
-Redux Toolkit: ^2.2.3
-Appwrite: ^13.0.2
-Bootstrap: ^5.3.3
-React Bootstrap: ^2.10.2
-React Hook Form: ^7.51.2
-React Input Emoji: ^5.7.1
-React Redux: ^9.1.0
-React Router DOM: ^6.22.3
-Tailwind CSS: Latest version
-Emoji Picker React: ^4.9.2
