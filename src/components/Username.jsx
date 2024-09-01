@@ -8,39 +8,14 @@ import config from "../config/config";
 import { useNavigate } from "react-router-dom";
 import { login } from "../store/authSlice";
 import Logo from "./Logo";
+import useCheckUsernameAvailable from "../hooks/useCheckUsernameAvailable";
 
 function Username() {
   const { register, handleSubmit } = useForm();
-  const [valid, setValid] = useState(true);
-  const userData = useSelector((state) => state.auth.userData);
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const { checkUsername, status } = useCheckUsernameAvailable();
 
-  const users = async (data) => {
-    try {
-      const username = await appwriteService.checkUsernameAvaialable(
-        data.username
-      );
-      if (username.length === 0) {
-        setValid(true);
-        const userProfile = await appwriteService.userProfile({
-          userId: userData.$id,
-          username: data.username,
-          user_profile_id: config.appwrite_default_profile_Id,
-          email: userData.email,
-          name: userData.name,
-        });
-
-        if (userProfile) {
-          dispatch(login({ ...userProfile }));
-          navigate("/home");
-        }
-      } else {
-        setValid(false);
-      }
-    } catch (error) {
-      throw error;
-    }
+  const onSubmit = (data) => {
+    checkUsername(data);
   };
 
   return (
@@ -48,14 +23,14 @@ function Username() {
       <div className="flex flex-col gap-4 bg-[#ED729F] dark:bg-red-500 px-12 py-8 rounded-2xl items-center">
         <Logo className="h-[60px] w-[60px] bg-white p-1 dark:bg-black" />
 
-        {!valid && (
+        {status === 'error' && (
           <p className="text-center text-white dark:text-amber-300 font-bold">
             Username not available
           </p>
         )}
 
         <form
-          onSubmit={handleSubmit(users)}
+          onSubmit={handleSubmit(onSubmit)}
           className="flex flex-col gap-6 dark:text-red-500 font-bold"
         >
           <Input
@@ -75,6 +50,7 @@ function Username() {
             Submit
           </Button>
         </form>
+        {status === 'loading' && <p className="text-white dark:text-black text-2xl">Loading...</p>}
       </div>
     </div>
   );
