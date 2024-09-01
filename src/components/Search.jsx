@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import appwriteService from "../appwrite/config";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Search({ username, className }) {
   const [users, setUsers] = useState([]);
@@ -11,7 +11,6 @@ function Search({ username, className }) {
     try {
       const timeoutId = setTimeout(async () => {
         const users = await appwriteService.searchUser(username);
-        // console.log(users);
         if (users) {
           setUsers(users);
         }
@@ -23,13 +22,12 @@ function Search({ username, className }) {
     }
   };
 
-  const getProfile = async (profileId) => {
+  const getProfile = async () => {
     const promises = users?.map(async (user) => {
       return await appwriteService.getProfileImage(user.user_profile_id);
     });
 
     const resolvedPromises = await Promise.all(promises);
-    // console.log(resolvedPromises);
     setProfileArr(resolvedPromises);
   };
 
@@ -42,18 +40,18 @@ function Search({ username, className }) {
     getProfile();
   }, [users]);
 
-
   return (
     <div
-      className={`flex flex-col gap-4 text-red-500 w-full h-auto items-center pt-4 pb-6 ${className}`}
+      className={`flex flex-col gap-4 text-red-500 w-full items-center pt-4 pb-6 ${className}`}
     >
       <ul className="flex flex-col items-center justify-center gap-4 w-full h-auto pt-4 px-4">
         {users.length !== 0 ? (
           users?.map((user, index) => (
-            <li
-              key={index}
-            >
-              <Link to={`/profile/${user?.username}`} className="flex gap-6 w-full h-auto p-4 justify-center pl-6 bg-black items-center rounded-lg flex-wrap">
+            <li key={index}>
+              <Link
+                to={`/profile/${user?.username}`}
+                className="flex gap-6 w-full h-auto p-4 justify-center pl-6 bg-black items-center rounded-lg flex-wrap"
+              >
                 <div
                   id="img"
                   className="h-[55px] w-[55px] rounded-full overflow-hidden"
@@ -73,7 +71,7 @@ function Search({ username, className }) {
           ))
         ) : (
           <div className="w-full flex items-center justify-center p-4 text-center bg-black">
-            <h1>Username with this name do not exists</h1>
+            <h1>Username with this name does not exist</h1>
           </div>
         )}
       </ul>

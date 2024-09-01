@@ -21,7 +21,9 @@ function SearchInput() {
           id="results"
           className="w-full h-auto bg-[#ED729F] dark:bg-red-500 shadow-md shadow-white rounded-md"
         >
-          {searchTerm && <Search username={searchTerm} />}
+          {searchTerm && <div className='max-h-[300px] overflow-y-auto'>
+              <Search username={searchTerm} />
+            </div>}
         </div>
     </div>
   );
