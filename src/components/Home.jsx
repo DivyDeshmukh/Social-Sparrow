@@ -207,6 +207,11 @@ function Home() {
     // console.log(text);
   }, [uploadedFile, tweets, text]);
 
+  // updating theme based on the value user selected and stored in db
+  useEffect(() => {
+
+  }, []);
+
   return (
     <div
       className="flex flex-col md:flex-row gap-8 px-4 md:px-10 lg:px-20 pb-6 w-full h-full font-bold mb-12 mt-4"

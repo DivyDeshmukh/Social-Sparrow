@@ -18,6 +18,7 @@ function SettingsPage() {
         ...userData,
         theme: "dark",
       });
+      console.log("Updated: ", updated);
       if (updated) {
         dispatch(login(updated));
       }
@@ -35,6 +36,8 @@ function SettingsPage() {
         ...userData,
         theme: "light",
       });
+      console.log("Updated LightToDark: ", updated);
+      
       if (updated) {
         dispatch(login(updated));
       }
@@ -51,7 +54,7 @@ function SettingsPage() {
         ? document.querySelector("html").classList.add(themeMode)
         : document.querySelector("html").classList.add(userData?.theme);
     }
-    // console.log(themeMode, userData?.theme);
+    // console.log("ThemeMode: ", typeof themeMode, "UserDataTheme: ", userData?.theme);
   }, [userData?.theme]);
 
   return (
@@ -85,7 +88,7 @@ function SettingsPage() {
                 userData?.theme === "dark" ? "bg-black" : "bg-[#ED729F]"
               } w-[50px] h-[25px] rounded-xl mr-2 cursor-pointer transition-all duration-200`}
             >
-              {userData?.theme !== "dark" ? (
+              {userData?.theme === "light" ? (
                 <button
                   className="h-full w-[25px] ml-1/2 bg-black rounded-xl transition-all duration-200"
                   onClick={darkMode}

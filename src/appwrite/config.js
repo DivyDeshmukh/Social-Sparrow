@@ -98,6 +98,7 @@ class AppwriteService {
         config.appwrite_collection_users_Id,
         userId
       );
+      
       if (userData) return userData;
     } catch (error) {
       console.log("Appwrite Service :: getUserDetailsById :: Error: ", error);

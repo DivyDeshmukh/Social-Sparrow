@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 import { login as loginAction } from "../store/authSlice";
 import appwriteService from "../appwrite/config";
 import Logo from "./Logo";
+import { setThemeMode } from "../store/themeSlice";
 
 function Login() {
   const { register, handleSubmit } = useForm();
@@ -21,11 +22,15 @@ function Login() {
     try {
       const session = await authService.login({ ...data });
       if (session) {
-        const id = await authService.getCurrentUser();
+        const id = await authService.getCurrentUser();    
         const currentUser = await appwriteService.getUserDetailsById(id.$id);
-        // console.log(currentUser);
-        dispatch(loginAction({ ...currentUser }));
-        navigate("/home");
+        console.log(currentUser);
+        if (currentUser) {
+          document.querySelector("html").classList.add(currentUser?.theme);
+          dispatch(setThemeMode(currentUser?.theme));
+          dispatch(loginAction({ ...currentUser }));
+          navigate("/home");
+        }
       }
     } catch (error) {
       setError(error.message);
